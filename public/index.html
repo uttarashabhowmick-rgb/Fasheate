@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fasheate — You imagine it. You create it.</title>
+<meta name="description" content="Sketch an idea, let AI turn it into a production brief, find a maker, and commission it with PayPal.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e4472b'/%3E%3Cpath d='M20 46V18h24v6H28v5h13v6H28v11z' fill='%23f6f0e6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#home" data-go="home" aria-label="Fasheate home"><span class="logo">F</span><span>Fash<em>eate</em></span></a>
+  <nav class="steps" aria-label="Progress">
+    <button data-go="studio" class="step on"><b>1</b> Create</button>
+    <button data-go="brief" class="step"><b>2</b> Develop</button>
+    <button data-go="makers" class="step"><b>3</b> Collaborate</button>
+    <button data-go="commission" class="step"><b>4</b> Commission</button>
+  </nav>
+  <div class="modes" id="modes"></div>
+</header>
+
+<main>
+  <!-- 1 STUDIO -->
+  <section id="home" class="view on">
+    <div class="homehero">
+      <span class="sticker">Free to try ✦ no design skills needed</span>
+      <h1 class="wordmark" aria-label="Fasheate">Fash<em>eate</em></h1>
+      <p class="tagline">You imagine it. You create it.<br><b>We’ll help you bring it to life.</b></p>
+      <div class="ctas">
+        <button class="btn primary huge pulse" data-go="studio">Start creating — it’s free →</button>
+        <a class="btn ghost huge" href="#watch">▶ Watch the 1-minute demo</a>
+      </div>
+    </div>
+
+    <div class="marquee" aria-hidden="true"><div class="track">
+      <span>a jacket stitched from monsoon colours</span><span>earrings made from old keys</span><span>a chair shaped like a wave</span><span>sneakers that look like a sunset</span><span>a tote for my grandmother’s sarees</span><span>a hat I dreamed about last night</span>
+      <span>a jacket stitched from monsoon colours</span><span>earrings made from old keys</span><span>a chair shaped like a wave</span><span>sneakers that look like a sunset</span><span>a tote for my grandmother’s sarees</span><span>a hat I dreamed about last night</span>
+    </div></div>
+
+    <div class="watch" id="watch">
+      <div class="frame">
+        <div class="chrome"><i></i><i></i><i></i><span>fasheate.app</span></div>
+        <video id="demo" src="/demo.mp4" poster="/demo-poster.jpg" muted loop playsinline controls preload="metadata"></video>
+      </div>
+      <div class="watchtext">
+        <h2>Sketch it. Develop it.<br>Make it exist.</h2>
+        <p>Fasheate takes the thing in your head — however rough — and turns it into something a real maker can build and you can pay for, all in one place.</p>
+        <ul class="ticks">
+          <li><b>Draw</b> on a canvas made for beginners</li>
+          <li><b>AI reads your sketch</b> and writes the production brief</li>
+          <li><b>Meet makers</b> who fit your idea</li>
+          <li><b>Commission safely</b> with PayPal milestones</li>
+        </ul>
+        <button class="btn primary big" data-go="studio">I need to try this →</button>
+      </div>
+    </div>
+
+    <div class="how">
+      <h2>From scribble to something real</h2>
+      <div class="cards">
+        <article><b class="n">1</b><h3>Create</h3><p>Start from a template or a blank page. Brush, fill, stamp. Unfinished is fine.</p></article>
+        <article><b class="n">2</b><h3>Develop</h3><p>AI looks at <i>your</i> drawing and drafts materials, build steps and the questions a maker will ask.</p></article>
+        <article><b class="n">3</b><h3>Collaborate</h3><p>Get matched with independent makers and request a proposal before your idea is “done”.</p></article>
+        <article><b class="n">4</b><h3>Commission</h3><p>Pay a deposit, then milestones, through PayPal. Each step unlocks the next.</p></article>
+      </div>
+    </div>
+
+    <div class="diff">
+      <h2>Not another AI image generator.</h2>
+      <p>Others make you a picture, or sell you a product someone else designed. Fasheate starts with <b>your</b> idea and ends with a real thing in your hands.</p>
+      <button class="btn primary huge pulse" data-go="studio">Make something that doesn’t exist yet →</button>
+    </div>
+  </section>
+
+  <section id="studio" class="view">
+    <div class="hero">
+      <h1>You imagine it.<br>You create it.<br><span>We’ll help you bring it to life.</span></h1>
+      <p>Draw anything — an outfit, a bag, a strange chair. It doesn’t have to be finished.</p>
+    </div>
+    <div class="studio">
+      <aside class="tools" aria-label="Drawing tools">
+        <div class="group"><h3>Start from</h3>
+          <div class="chips" id="templates"></div>
+          <label class="btn ghost small">Upload an image<input type="file" id="upload" accept="image/*" hidden></label>
+        </div>
+        <div class="group"><h3>Fabric</h3>
+          <div class="chips" id="fabrics"></div>
+          <label class="check"><input type="checkbox" id="mirror" checked> Colour both sides together</label>
+          <p class="hint">Pick a garment, then use <b>Fill</b> and tap a part — sleeves, sole, collar…</p>
+        </div>
+        <div class="group"><h3>Tool</h3>
+          <div class="chips" id="toolbtns">
+            <button class="chip on" data-tool="brush">Brush</button>
+            <button class="chip" data-tool="eraser">Eraser</button>
+            <button class="chip" data-tool="fill">Fill</button>
+            <button class="chip" data-tool="stamp">Stamp</button>
+          </div>
+          <div class="chips" id="stamps" hidden></div>
+        </div>
+        <div class="group"><h3>Colour</h3>
+          <div class="swatches" id="swatches"></div>
+          <input type="color" id="color" value="#e4472b" aria-label="Custom colour">
+        </div>
+        <div class="group"><h3>Size <span id="sizeout">8</span></h3>
+          <input type="range" id="size" min="2" max="60" value="8">
+        </div>
+        <div class="group row">
+          <button class="btn ghost small" id="undo">Undo</button>
+          <button class="btn ghost small" id="clear">Clear</button>
+          <button class="btn ghost small" id="savepng">Save PNG</button>
+        </div>
+      </aside>
+
+      <div class="canvaswrap">
+        <canvas id="canvas" width="900" height="900" aria-label="Drawing canvas"></canvas>
+      </div>
+
+      <aside class="about">
+        <label>Name your idea
+          <input id="title" maxlength="80" placeholder="e.g. Monsoon market jacket">
+        </label>
+        <label>What are you imagining?
+          <textarea id="notes" rows="6" maxlength="1500" placeholder="Who is it for? How should it feel? Any colours, fabrics or details you already know you want — or none at all."></textarea>
+        </label>
+        <button class="btn primary big" id="develop">Develop with AI →</button>
+        <p class="hint">AI reads <i>your</i> drawing and notes, then drafts a production brief a maker can quote from.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 2 BRIEF -->
+  <section id="brief" class="view">
+    <div class="panelhead"><h2>Your production brief</h2><span class="pill" id="aimode"></span></div>
+    <div id="briefloading" class="loading" hidden><div class="spinner"></div>Reading your design…</div>
+    <div class="briefgrid" id="briefgrid" hidden>
+      <figure class="designcard"><img id="briefimg" alt="Your design"><figcaption id="briefpalette"></figcaption></figure>
+      <div class="briefbody">
+        <h3 id="b-title"></h3><p id="b-summary" class="lead"></p>
+        <section class="products" id="products">
+          <h4>Products to make it</h4>
+          <p class="hint" id="prodhint">Real products you could buy for each material in your design.</p>
+          <div id="prodgroups"></div>
+        </section>
+        <section class="photo" id="photo">
+          <h4>See it in real life</h4>
+          <div class="viewer" id="viewer" tabindex="0" aria-label="Photo preview — drag left or right to rotate">
+            <div class="stage3d" id="stage3d"><img id="photoimg" alt="Realistic preview of your design"></div>
+            <div class="viewload" id="viewload" hidden><div class="spinner"></div><span>Developing your photo…</span></div>
+            <span class="drag" id="draghint" hidden>⟷ drag to rotate</span>
+          </div>
+          <div class="chips" id="viewchips"></div>
+          <p class="hint" id="photohint">AI turns your design into a photoreal product shot, then lets you turn it around.</p>
+          <button class="btn primary" id="genphoto">✨ Show me the real thing</button>
+        </section>
+        <div class="cols">
+          <section><h4>Components</h4><ul id="b-components"></ul></section>
+          <section><h4>Suggested materials</h4><ul id="b-materials"></ul></section>
+        </div>
+        <section><h4>How it could be made</h4><ol id="b-construction"></ol></section>
+        <div class="meter"><span>Complexity</span><div id="b-complexity"></div><span id="b-lead"></span></div>
+        <div class="cols">
+          <section><h4>Ideas to improve it</h4><ul id="b-improve"></ul></section>
+          <section><h4>Easier alternatives</h4><ul id="b-alt"></ul></section>
+        </div>
+        <section class="questions"><h4>A maker will want to know…</h4>
+          <p class="hint">Answer what you can — it goes straight into the brief. Skip the rest.</p>
+          <div id="b-questions"></div>
+          <button class="btn ghost" id="refine">Refine brief with my answers</button>
+        </section>
+        <div class="row end">
+          <button class="btn ghost" data-go="studio">← Back to studio</button>
+          <button class="btn primary" id="tomakers">Find makers →</button>
+        </div>
+      </div>
+    </div>
+    <p class="empty" id="briefempty">Draw something first, then press “Develop with AI”.</p>
+  </section>
+
+  <!-- 3 MAKERS -->
+  <section id="makers" class="view">
+    <div class="panelhead"><h2>Makers who could build this</h2><span class="pill">Sample makers for the prototype</span></div>
+    <div class="msg"><label>Message to the maker (optional)
+      <textarea id="makermsg" rows="2" maxlength="800" placeholder="Anything else they should know — deadline, fit, inspiration…"></textarea></label></div>
+    <div id="makerlist" class="makers"></div>
+    <p class="empty" id="makersempty">Develop a brief first so we can match makers to your idea.</p>
+  </section>
+
+  <!-- 4 COMMISSION -->
+  <section id="commission" class="view">
+    <div class="panelhead"><h2>Your commission</h2><span class="pill" id="paymode"></span></div>
+    <div id="comview" hidden></div>
+    <p class="empty" id="comempty">Pick a maker to receive a proposal and quote.</p>
+  </section>
+</main>
+
+<footer>Fasheate prototype · Payments run in the PayPal Sandbox — no real money moves · <a href="https://github.com/" target="_blank" rel="noopener">Open source (MIT)</a></footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="/garments.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
